@@ -160,7 +160,11 @@ if (BUILD_STATIC_LIBS)
         endif(MSVC)
         
     else (WIN32)
-        set_target_properties(rabbitmq-static PROPERTIES VERSION ${RMQ_VERSION} SOVERSION ${RMQ_SOVERSION} OUTPUT_NAME rabbitmq)
+        set_target_properties(rabbitmq-static PROPERTIES 
+          VERSION ${RMQ_VERSION} 
+          SOVERSION ${RMQ_SOVERSION} 
+          OUTPUT_NAME rabbitmq
+          COMPILE_OPTIONS "-fPIC")
     endif (WIN32)
 
     install(TARGETS rabbitmq-static
