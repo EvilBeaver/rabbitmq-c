@@ -361,6 +361,17 @@ AMQP_CALL amqp_version(void);
 #define AMQP_DEFAULT_HEARTBEAT 0
 
 /**
+ * \def AMQP_DEFAULT_VHOST
+ *
+ * Default RabbitMQ vhost: "/"
+ *
+ * \sa amqp_login(), amqp_login_with_properties()
+ *
+ * \since v0.9.0
+ */
+#define AMQP_DEFAULT_VHOST "/"
+
+/**
  * boolean type 0 = false, true otherwise
  *
  * \since v0.1
@@ -1939,7 +1950,7 @@ AMQP_CALL amqp_channel_close(amqp_connection_state_t state, amqp_channel_t chann
  * Closes the entire connection
  *
  * Implicitly closes all channels and informs the broker the connection
- * is being closed, after receiving acknowldgement from the broker it closes
+ * is being closed, after receiving acknowledgment from the broker it closes
  * the socket.
  *
  * \param [in] state the connection object
